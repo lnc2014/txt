@@ -9,11 +9,18 @@
 class wechat extends CI_Controller{
 
 
-
-
     public function index(){
         $result = $this->get_device_detail('');
         echo $result;
+    }
+
+    /**
+     * 实名认证页面
+     */
+    public function real_name_auth(){
+
+        $this->load->view('wechat/real_name_auth');
+
     }
 
     /**

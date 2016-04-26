@@ -7,42 +7,7 @@
         if (r != null)
             return unescape(r[2]);
         return null;
-	}
-
-    //弹窗显示指令成功或者失败的状态
-	function comStatus(promptName) {
-	    $(promptName).slideDown(200);
-	        setTimeout(function () {
-	            $(promptName).slideUp(200);
-	        }, 3000);
-	} 
-
-    //获取中英文字符长度，截取指定长度字符显示
-	function cutStr(str, len) {
-	    var str_length = 0;
-
-	    if (str == null || str == "" || str.length == 0 || str == undefined) return "";
-	    if (str == '未填写品牌') return str;
-
-	    var str_cut = new String();
-	    for (var i = 0; i < str.length; i++) {
-	        var a = str.charAt(i);
-	        str_length++;
-	        if (escape(a).length > 4) {
-	            //中文字符的长度经编码之后大于4  
-	            str_length++;
-	        }
-	        str_cut = str_cut.concat(a);
-	        if (str_length >= len) {
-	            str_cut = str_cut.concat("...");
-	            return str_cut;
-	        }
-	    }
-	    //如果给定字符串小于指定长度，则返回源字符串；  
-	    if (str_length < len) {
-	        return str;
-	    }
-	}
+    }
 
 	/**
 	 *! 确认框封装
@@ -94,80 +59,6 @@
 		}
 
 	}());
-
-    /*loading加载方法*/
-
-	var loading = (function () {
-	    var $loading = null, $content = null;
-
-	    return {
-	        open: open,
-	    }
-
-	    function init_loading_ele() {
-	        var html = [];
-	        html.push('<div class="m-confirm-bg"></div>');
-	        html.push('<div class="loading">');
-	        html.push('<div class="loading-img"><img src="../imgs/loading.gif" /></div><div class="loading-text">正在查询</div>');
-	        html.push('</div>');
-	        $('body').append(html.join(''));
-	    }
-
-
-	    function open(text) {
-	        if ($loading === null)
-	            init_loading_ele();
-	        $loading = $(".m-confirm-bg");
-	        $content = $(".loading");
-
-	        $('loading-text', $content).text(text);
-	        $loading.show();
-	        $content.show();
-
-	    }
-
-	}());
-
-
-    /*获取照片和视频方法*/
-
-	var photoCapture = (function () {
-	    var $photoCapture = null, $content = null;
-
-	    return {
-	        open: open,
-	    }
-
-	    function init_photoCapture_ele() {
-	        var html = [];
-	        html.push('<div class="m-confirm-bg"></div>');
-	        html.push('<div class="photoCapture">');
-	        html.push('<div class="photoCapture-text"></div>');
-	        html.push('</div>');
-	        $('body').append(html.join(''));
-	    }
-
-
-	    function open(text) {
-	        if ($photoCapture === null)
-	            init_photoCapture_ele();
-	        $photoCapture = $(".m-confirm-bg");
-	        $content = $(".photoCapture");
-
-	        $('.photoCapture-text', $content).text(text);
-	        $photoCapture.show();
-	        $content.show();
-
-	    }
-
-	}());
-
-
-
-
-
-
-
 
 	/**
 	 *! 信息框封装，用于显示详细地址为主
@@ -233,8 +124,9 @@
 		function init_cfm_ele() {
 		    var html = [];
 		    html.push('<div class="m-confirm-bg"></div>');
-		    html.push('<div class="m-confirm-loading">'); 
-		        html.push('<div style="float: left;margin-top: 11px;margin-left: 10px;"><img src="http://open.m-m10010.com/Html/images/terminal/loading.gif" /> </div>');
+		    html.push('<div class="m-confirm-loading">');
+
+		    html.push('<div style="float: left;margin-top: 9px;margin-left: 10px;"><img src="../App_Themes/images/loading.gif" /> </div>');
 		    html.push('<div class="m-loading-msg">正在处理中...</div>');
 		    html.push('</div>');
 		    $('body').append(html.join(''));
@@ -405,42 +297,6 @@
 	    return flag;
 	}
 
-    /*设置url跳转参数，加入、修改，参数：url本页面路径、q查询参数=objectId、key值*/
-	function setUrlKey(url, q, key) {
-	    /*
-        if(key=='undefined'){
-            return url;
-        }else{
-            var param=getQuery(q); return param != null ? url.replace( q + '=' + escape(param), q + '=' + encodeURIComponent(key)) : url = url.indexOf('?') > 0 ? url + '&' + q + '=' + encodeURIComponent(key) : url + '?' + q + '=' + encodeURIComponent(key);
-        }*/
-
-	    var newUrl = "";
-	    if (key == 'undefined') {
-	        newUrl = url;
-	    } else {
-	        var paramVal = getQueryFromSrc(url, q);
-	        if (paramVal != null) {
-	            newUrl = url.replace(q + '=' + escape(paramVal), q + '=' + encodeURIComponent(key));
-	        } else {
-	            if (url.indexOf('?') > 0) {
-	                newUrl = url + '&' + q + '=' + encodeURIComponent(key);
-	            } else {
-	                newUrl = url + '?' + q + '=' + encodeURIComponent(key);
-	            }
-	        }
-	    }
-
-	    return newUrl;
-	}
-	function getQueryFromSrc(src, name) {
-	    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-	    var r = src.split('?').length > 1 ? src.split('?')[1].match(reg) : null;
-	    if (r != null)
-	        return unescape(r[2]);
-	    return null;
-	}
-
-
 	/**
 	 *! 定义全局函数对象
 	 *! 调用：		$.fn(data, namespace);
@@ -460,8 +316,6 @@
 		['cfm', cfm],
 		['getUrlQuery', getUrlQuery], 
 		['cfm', cfm],
-        ['loading', loading],
-        ['photoCapture', photoCapture],
 		['msg', msg],
         ['loadCfm', loadCfm],
         ['getMyLocation', getMyLocation],
@@ -470,10 +324,7 @@
         ['getOptionTextByVal', getOptionTextByVal],
         ['timehelper', timehelper],
         ['analyze_insert_address', analyze_insert_address],
-        ['isCoordVaild', isCoordVaild],
-        ['cutStr', cutStr],
-        ['comStatus', comStatus],
-        ['setUrlKey', setUrlKey]
+        ['isCoordVaild', isCoordVaild]
 	], 'jshelper');
 
 }());

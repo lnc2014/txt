@@ -1,0 +1,26 @@
+﻿body{background-color:#f5f5f5;}
+.v-h3{font-size:14px;font-weight:normal;margin-bottom:5px;margin-top:10px;}
+.v-padding{padding-left:10px;padding-right:10px;}
+.veritied-part1{margin:10px 5px;padding:10px 5px;background-color:#fff;border:1px solid #ddd;color:#ff6e16;}
+.verified-input{width:100%;background-color:#fff;border:none;border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding:10px;line-height: 22px;box-sizing: border-box;}
+.v-tips{color:#ff0000;}
+.IDCard-input{border-top:0;}
+.l-upload{float:left;width:50%;padding-right:10px;box-sizing:border-box;}
+.r-upload{float:right;width:50%;padding-left:10px;box-sizing:border-box;}
+.upload-photos .upload-container{background-color:#fff;width:100%;text-align:center;height:100px;line-height:100px;box-sizing:border-box;border:1px dotted #ddd;display:block;color:#aaa;text-decoration:none;}
+.upload-container img{max-width:100%;max-height:100%;}
+.veritied-part4{overflow:hidden;}
+.veritied-part5{margin-top:20px;}
+.verified-btn{	  display: inline-block;padding: 6px 12px;margin-bottom: 0;font-size: 14px;font-weight: 400;line-height: 27px;text-align: center;white-space: nowrap;vertical-align: middle;
+-ms-touch-action: manipulation;
+  	touch-action: manipulation;
+  	cursor: pointer;
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	user-select: none;
+  	background-image: none;
+  	border: 1px solid transparent;
+  	border-radius: 4px;color: #fff; background-color: rgb(34, 169, 237); border-color: rgb(32, 169, 237);display:block;width:100%;}
+.v-confirm-txt{padding:15px;}
+.verified-close-btn{width: 80%;margin: 15px auto 0 auto;}
