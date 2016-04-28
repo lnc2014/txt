@@ -71,7 +71,7 @@ $base_img_url = $this->config->item('base_img_url');
             <p><span id="lblPackageInfo"><?php echo $taocan['iratePlanName'] ?></span></p>
         </div>
         <!-- 切换卡号图标 -->
-        <a class="changeCard" href="<?php echo site_url('wechat/check') ?>"></a>
+        <a class="changeCard" href="<?php echo site_url('wechat/check/second') ?>"></a>
     </header>
     <div class="simcard-main">
         <div class="dueTips"></div>

@@ -47,6 +47,12 @@ class wechat extends CI_Controller{
         }
         $device_detail = $this->get_device_detail($iccid);
         $device_detail_array = json_decode($device_detail,true);
+
+        if($device_detail_array['code'] == 100){
+            session_start();
+            $_SESSION['iccid'] = $iccid;
+
+        }
         echo $device_detail_array['code'];
     }
     /**
@@ -54,6 +60,24 @@ class wechat extends CI_Controller{
      */
     public function check(){
         $this->load->helper('url');
+        session_start();
+
+        $second = $this->uri->segment(3);
+        if($second == 'second'){
+            unset($_SESSION['iccid']);
+        }
+        $iccid = empty($_SESSION['iccid'])?'':$_SESSION['iccid'];
+
+        if(!empty($iccid)){
+            $url = site_url('wechat/taocan_detail');
+            $url = $url.'?iccid='.$iccid;
+                echo "<script>
+                        window.location.href='".$url."';
+                      </script>";
+                exit;
+        }
+
+
         $this->load->view('wechat/check');
 
     }

@@ -27,10 +27,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$config['base_css_url'] = 'http://wuliu.me/static/css';
 //$config['base_js_url'] = 'http://wuliu.me/static/js';
 //$config['base_img_url'] = 'http://wuliu.me/static/imgs';
-$config['base_url'] = 'http://m.wo-sim.com/';
-$config['base_css_url'] = 'http://www.wo-sim.com/static/css';
-$config['base_js_url'] = 'http://www.wo-sim.com/static/js';
-$config['base_img_url'] = 'http://www.wo-sim.com/static/imgs';
+$config['base_url'] = 'http://127.0.0.1/liuliang';
+$config['base_css_url'] = 'http://127.0.0.1/liuliang/static/css';
+$config['base_js_url'] = 'http://127.0.0.1/liuliang/static/js';
+$config['base_img_url'] = 'http://127.0.0.1/liuliang/static/imgs';
 
 /*
 |--------------------------------------------------------------------------
